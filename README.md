@@ -1,0 +1,1 @@
+This project impliments SPA UI for Front Office

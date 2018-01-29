@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "baseUrl": "./src/",
+        "module": "commonjs",
+        "lib": ["dom", "es7"],
+        "target": "es5",
+        "jsx": "react",
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+        // "strictNullChecks": true
+    },
+    "awesomeTypescriptLoaderOptions": {
+      "useCache": true
+    }
+}

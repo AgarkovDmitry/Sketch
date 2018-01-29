@@ -1,0 +1,49 @@
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+    - dist/
+
+stages:
+  - install
+  - codestyle 
+  - test
+  - build
+
+install:
+  stage: install
+  script:
+    - rm -rf node_modules
+    - npm install 
+  tags:
+    - install
+
+lint:
+  stage: codestyle
+  script:
+    - npm run lint 
+  tags:
+    - codestyle
+
+    
+test:
+  stage: test
+  script: 
+    - echo "running test stage"
+  tags:
+    - test
+
+
+build:
+  stage: build
+  variables:
+    NODE_ENV: production
+  script:
+    - npm run build
+    - rm -rf "$CI_PROJECT_DIR"/.git
+    - rm -f "$CI_PROJECT_DIR"/.git*
+  artifacts:
+    paths:
+      - "./"
+  tags:
+    - build
